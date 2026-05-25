@@ -1,4 +1,3 @@
-
 # Importing necessary libraries
 import streamlit as st
 import os
@@ -140,7 +139,11 @@ with st.sidebar:
         <div class='sidebar-link'><a href="#explorer">📍 Station Explorer</a></div>
         <div class='sidebar-link'><a href="#trends">📈 Sensor Trends</a></div>
         <div class='sidebar-link'><a href="#rag">🧠 Risk Explanation</a></div>
-        <div class='sidebar-link'><a href="#compare">🏠 Stations Comparison</a></div>
+        <div class='sidebar-link'><a href="#animated">🎬 Animated Trends</a></div>
+        <div class='sidebar-link'><a href="#correlation">🫧 Correlation Explorer</a></div>
+        <div class='sidebar-link'><a href="#riskscore">📈 Risk Score</a></div>
+        <div class='sidebar-link'><a href="#compare">🔀 Stations Comparison</a></div>
+        <div class='sidebar-link'><a href="#download-report">📥 Download Report</a></div>
     """, unsafe_allow_html=True)
 
 
@@ -738,6 +741,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 # === ANIMATED SENSOR TRENDS ===
+st.markdown('<a name="animated"></a>', unsafe_allow_html=True)
 st.subheader("🎬 Animated Sensor Trends Over Time")
 st.caption("Pick a sensor and hit play to watch it change over time. If the line drifts into the red shaded area, that sensor is outside safe limits.")
 
@@ -848,6 +852,7 @@ st.plotly_chart(fig_anim, use_container_width=True)
 
 
 # === SENSOR CORRELATION BUBBLE CHART ===
+st.markdown('<a name="correlation"></a>', unsafe_allow_html=True)
 st.subheader("🫧 Sensor Correlation Explorer")
 st.caption("This plots temperature against chlorine for every reading. Bubbles that land in the red box mean both are in a bad place at the same time, which is when Legionella risk is highest.")
 
@@ -902,6 +907,7 @@ st.plotly_chart(fig_bubble, use_container_width=True)
 
 
 # === RISK SCORE OVER TIME ===
+st.markdown('<a name="riskscore"></a>', unsafe_allow_html=True)
 st.subheader("📈 Risk Score Over Time")
 st.caption("One line, one story. When it sits in the green zone, the station is fine. When it climbs into orange or red, something needs fixing.")
 
