@@ -636,7 +636,7 @@ When answering, you MUST:
 Sensor data for context (use only if relevant to the question):
 {context}
 
-User's question:
+Your question:
 {question}
 
 Answer:"""
