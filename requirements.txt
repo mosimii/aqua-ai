@@ -19,3 +19,4 @@ reportlab
 pypdf
 streamlit-aggrid
 python-dotenv
+protobuf==4.25.3
