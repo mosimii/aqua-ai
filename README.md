@@ -1,26 +1,24 @@
 # 💧 Aqua-AI: Legionella Risk Monitoring Portal
 
-Aqua-AI is a real-time AI-powered dashboard that helps facilities monitor conditions contributing to Legionella risk. Built with Streamlit, it integrates advanced analytics, visualizations, and LLM-based explanations to support proactive risk management.
+Aqua-AI is a dashboard I built to make Legionella risk monitoring something anyone can actually use, not just engineers or consultants. It takes live sensor data, scores the risk, and tells you in plain English whether a station needs attention. No spreadsheets, no guesswork.
 
 ---
 
-## 🚀 Features
+## What it does
 
-- 📊 **Sensor Data Overview** - Displays total stations, latest readings, and high-risk counts.
-- 📍 **Station Explorer** - View historical data per station including temperature, chlorine, pH, and flow.
-- 📈 **Trends & Risk Bands** - Time-series plots with risk color bands.
-- 🎯 **Radial Gauges** – Interactive gauges for latest readings.
-- 🧠 **Questions and Risk Explanation (RAG)** – GPT-4 explains site risk using contextual data + expert documentation with citations.
-- 🔀 **Stations Comparison** – Compare two or more stations across key metrics and trends.
-- 📥 **Download Reports** – Export dashboard visuals as PDF.
-- 🌐 **Sidebar Navigation** – Quick access to all sections with links to Aquatrust resources and training.
+- 📊 **Overview** - See how many stations you have, how many are flagged, and when the last reading came in.
+- 📍 **Station Explorer** - Pick a station and dig into its history across temperature, chlorine, pH, and flow rate.
+- 📈 **Risk Score Over Time** - One line, one story. Green zone means safe, orange means watch it, red means act now.
+- 🎬 **Animated Sensor Trends** - Hit play and watch how readings have changed over time. If the line drifts into the red shaded area, that sensor is outside safe limits.
+- 🫧 **Sensor Correlation Explorer** - Temperature and chlorine plotted together. Bubbles in the red box mean both are in a bad place at the same time, which is when risk is highest.
+- 🎯 **Radial Gauges** - At-a-glance gauges showing the latest readings against safe thresholds.
+- 🧠 **GPT-4 Risk Q&A** - Ask a question about your station in plain English and get an answer grounded in official guidance from the HSE, CDC, and GOV.UK. Not generic AI waffle, actual regulatory references.
+- 🔀 **Compare Stations** - Put two or more stations side by side across every metric.
+- 📥 **Download Reports** - Export everything as a PDF.
 
 ---
 
-## 🧠 Powered By
+## Built with
 
-- **Streamlit** – Rapid UI for data apps
-- **Plotly** – Interactive charts and gauges
-- **LangChain, OpenAIEmbeddings + OpenAI GPT-4** – Risk insight via Retrieval-Augmented Generation (RAG)
-- **ChromaDB** – Vector store for expert guidance documents, from Aquatrust, HSE, WHO
-- **Pandas & Joblib** – Data processing and ML model loading
+Python, Streamlit, Plotly, LangChain, OpenAI GPT-4, ChromaDB, Pandas, Scikit-learn
+
