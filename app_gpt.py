@@ -15,13 +15,11 @@ from sklearn.ensemble import RandomForestClassifier
 from st_aggrid import AgGrid, GridOptionsBuilder, JsCode
 import requests
 from bs4 import BeautifulSoup
-from langchain.document_loaders import TextLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import Chroma
-from langchain.chat_models import ChatOpenAI
+from langchain_community.document_loaders import TextLoader, PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
-from langchain.document_loaders import PyPDFLoader
 import io
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
