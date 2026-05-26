@@ -15,8 +15,8 @@ langchain-classic
 langchain-text-splitters
 openai
 chromadb
+faiss-cpu
 reportlab
 pypdf
 streamlit-aggrid
 python-dotenv
-chromadb==0.4.24

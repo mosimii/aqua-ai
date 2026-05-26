@@ -19,6 +19,7 @@ from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_classic.chains import RetrievalQA
 import io
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
@@ -509,11 +510,6 @@ VECTORSTORE_DIR = "chroma_db"
 def build_vectorstore():
     embeddings = OpenAIEmbeddings()
 
-    # Reuse persisted vectorstore if it exists
-    if os.path.exists(VECTORSTORE_DIR) and os.listdir(VECTORSTORE_DIR):
-        vectordb = Chroma(persist_directory=VECTORSTORE_DIR, embedding_function=embeddings)
-        return vectordb
-
     sources = [
         ("HSE", fetch_hse_text()),
         ("HSE", fetch_hse_text2()),
@@ -537,13 +533,51 @@ def build_vectorstore():
         all_docs.extend(chunks)
         metadatas.extend([{"source": name}] * len(chunks))
 
-    vectordb = Chroma.from_texts(
+    vectordb = FAISS.from_texts(
         texts=all_docs,
         embedding=embeddings,
-        metadatas=metadatas,
-        persist_directory=VECTORSTORE_DIR
+        metadatas=metadatas
     )
     return vectordb
+
+# def build_vectorstore():
+#     embeddings = OpenAIEmbeddings()
+
+#     # Reuse persisted vectorstore if it exists
+#     if os.path.exists(VECTORSTORE_DIR) and os.listdir(VECTORSTORE_DIR):
+#         vectordb = Chroma(persist_directory=VECTORSTORE_DIR, embedding_function=embeddings)
+#         return vectordb
+
+#     sources = [
+#         ("HSE", fetch_hse_text()),
+#         ("HSE", fetch_hse_text2()),
+#         ("HSE L8", fetch_hse_l8_text()),
+#         ("HSE HSG274", fetch_hse_hsg274_text()),
+#         ("CDC", fetch_cdc_text()),
+#         ("GOV.UK", fetch_gov_text()),
+#         ("MN Dept Health", fetch_us_health_text()),
+#         ("De Giglio 2025", fetch_paper_text())
+#     ]
+
+#     splitter = RecursiveCharacterTextSplitter(
+#         chunk_size=1000,
+#         chunk_overlap=200,
+#         separators=["\n\n", "\n", ". ", " ", ""]
+#     )
+#     all_docs, metadatas = [], []
+
+#     for name, content in sources:
+#         chunks = splitter.split_text(content)
+#         all_docs.extend(chunks)
+#         metadatas.extend([{"source": name}] * len(chunks))
+
+#     vectordb = Chroma.from_texts(
+#         texts=all_docs,
+#         embedding=embeddings,
+#         metadatas=metadatas,
+#         persist_directory=VECTORSTORE_DIR
+#     )
+#     return vectordb
 
 
 # === GPT-4 Risk Explanation (RAG) ===
