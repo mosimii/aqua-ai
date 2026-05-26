@@ -11,6 +11,7 @@ beautifulsoup4
 langchain
 langchain-community
 langchain-openai
+langchain-classic
 langchain-text-splitters
 openai
 chromadb
