@@ -100,6 +100,12 @@ st.markdown("""
         .stAlert p {
             color: inherit !important;
         }
+        a[name] {
+            display: block;
+            position: relative;
+            top: -80px;
+            visibility: hidden;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -141,7 +147,7 @@ with st.sidebar:
         <div class='sidebar-link'><a href="#rag">🧠 Risk Explanation</a></div>
         <div class='sidebar-link'><a href="#animated">🎬 Animated Trends</a></div>
         <div class='sidebar-link'><a href="#correlation">🫧 Correlation Explorer</a></div>
-        <div class='sidebar-link'><a href="#riskscore">📈 Risk Score</a></div>
+        <div class='sidebar-link'><a href="#riskscore">📈 Risk Score Over Time</a></div>
         <div class='sidebar-link'><a href="#compare">🔀 Stations Comparison</a></div>
         <div class='sidebar-link'><a href="#download-report">📥 Download Report</a></div>
     """, unsafe_allow_html=True)
@@ -1002,6 +1008,7 @@ st.plotly_chart(fig_risk, use_container_width=True)
 
 
 
+
 # Compare stations
 def show_station_comparison(df):
     # st.title("📊 Station Comparison")
@@ -1096,6 +1103,7 @@ def show_station_comparison(df):
     st.pyplot(fig_mpl)
 
 
+st.markdown('<a name="compare"></a>', unsafe_allow_html=True)
 st.markdown("<h2 id='compare'>🔀 Stations Comparison</h2>", unsafe_allow_html=True)
 show_station_comparison(df)
 
