@@ -21,6 +21,7 @@ from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_community.vectorstores import Chroma
 from langchain_community.vectorstores import FAISS
 from langchain_classic.chains import RetrievalQA
+from langchain_core.prompts import PromptTemplate
 import io
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
@@ -617,7 +618,7 @@ Latest readings for {station_id}:
 
         llm = ChatOpenAI(temperature=0, model="gpt-4")
 
-        from langchain.prompts import PromptTemplate
+        # from langchain.prompts import PromptTemplate
         prompt_template = PromptTemplate(
             input_variables=["context", "question"],
             template="""You are a Legionella risk assessment expert. You have access to official regulatory guidance from the HSE, CDC, GOV.UK, and published research.
