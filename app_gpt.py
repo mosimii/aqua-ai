@@ -684,10 +684,7 @@ Answer:"""
         st.markdown("- [WHO Legionella Guidelines](https://iris.who.int/bitstream/handle/10665/43233/9241562978_eng.pdf?sequence=1)")
 
 except NameError:
-    st.warning("Please select a station first to view risk explanation.")
-
-
-
+    st.warning("Please select a station first to view risk explanation!")
 
 
 
