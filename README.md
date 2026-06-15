@@ -1,6 +1,6 @@
 # 💧 Aqua-AI: Legionella Risk Monitoring Portal
 
-Aqua-AI is a dashboard I built to make Legionella risk monitoring something anyone can actually use, not just engineers or consultants. It takes live sensor data, scores the risk, and tells you in plain English whether a station needs attention. No spreadsheets, no guesswork.
+Aqua-AI is an MVP prototype dashboard I built for a client to make Legionella risk monitoring something anyone can actually use, not just engineers or consultants. It takes live sensor data, scores the risk, and tells you in plain English whether a station needs attention. No spreadsheets, no guesswork. 
 
 ---
 
